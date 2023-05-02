@@ -4,7 +4,9 @@ import AdminLogout from "../AdminLogout/AdminLogout";
 import "./AdminHeader.css";
 
 const AdminHeader = () => {
-  const infoAdmin = JSON.parse(localStorage.getItem("info-admin"));
+  const infoAdmin = localStorage.getItem("info-admin")
+    ? JSON.parse(localStorage.getItem("info-admin"))
+    : "";
 
   return (
     <div className="admin_nav_header">
