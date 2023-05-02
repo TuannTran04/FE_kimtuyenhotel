@@ -1,0 +1,152 @@
+.adminRoom_page {
+}
+
+.adminRoom_header {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adminRoom_header h2 {
+}
+
+.adminRoom_tools {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.adminRoom_tools label {
+  color: black;
+  margin-right: 50px;
+}
+.adminRoom_tools_search {
+  margin-left: 10px;
+  padding: 5px 20px;
+  outline: none;
+}
+.adminRoom_tools_filter {
+  margin-left: 10px;
+  padding: 5px 20px;
+  outline: none;
+}
+.adminRoom_tools a {
+  font-size: 15px;
+  background: #009688;
+  border-color: #009688;
+  color: #fff;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.adminRoom_wrap_list {
+  background-color: #fff;
+  padding: 28px;
+}
+
+.adminRoom_list {
+  width: 100%;
+  max-width: 100%;
+  /* max-width: 1200px; */
+  max-height: 550px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.adminRoom_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.adminRoom_table thead {
+  background-color: #3e5265;
+}
+.adminRoom_table thead tr {
+  height: 70px;
+}
+
+.adminRoom_table th {
+  color: white;
+  padding: 16px 12px;
+  white-space: nowrap;
+}
+
+.adminRoom_table tr {
+  border-bottom: 1px solid black;
+  text-align: center;
+  height: 140px;
+}
+.adminRoom_table tr:last-child {
+  border: 0;
+}
+
+.adminRoom_table td {
+  padding: 16px 12px;
+  height: inherit;
+}
+
+.adminRoom_room_img {
+  width: 150px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.adminRoom_active {
+  background-color: rgba(15, 183, 107, 0.12) !important;
+  color: #26af48 !important;
+  padding: 8px 6px;
+  border-radius: 5px;
+}
+.adminRoom_disabled {
+  padding: 8px 6px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.adminRoom_action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminRoom_action button {
+  font-size: 15px;
+  display: inline-block;
+  font-weight: 400;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 6px 12px;
+  outline: none;
+  border: none;
+  margin: 0 3px;
+}
+
+.adminRoom_action-edit {
+  color: #212529;
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.adminRoom_action-delete {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.adminRoom_action-active {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.adminRoom_action-disabled {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}

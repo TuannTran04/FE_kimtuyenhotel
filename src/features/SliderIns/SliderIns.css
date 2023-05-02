@@ -1,0 +1,88 @@
+.ins_container {
+  height: 205px;
+}
+.slider_ins {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: grabbing;
+  user-select: none;
+}
+
+.slider_ins .slick-list {
+  transform: translate3d(0, 0, 0);
+  height: 100%;
+}
+
+.slider_ins .slick-list .slick-track {
+  height: 100%;
+}
+
+.slider_ins .slick-list .slick-track .slick-slide {
+  height: 100%;
+}
+
+.slider_ins .slick-list .slick-track .slick-slide > div {
+  height: 100%;
+}
+
+.ins_item {
+  position: relative;
+  display: inline-block;
+  width: 306px;
+  height: 100%;
+}
+
+.ins_item img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.ins_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(1, 10, 68, 0);
+  transition: all 0.5s ease;
+}
+
+.ins_overlay_content {
+  height: 100%;
+  position: relative;
+}
+
+.ins_overlay_content a {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  top: 45%;
+  color: #fff;
+  font-size: 35px;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.ins_overlay_content i {
+}
+
+.ins_item:hover .ins_overlay {
+  background-color: rgba(1, 10, 68, 0.3);
+}
+
+.ins_item:hover .ins_overlay .ins_overlay_content a {
+  opacity: 1;
+  visibility: visible;
+  top: 48%;
+}

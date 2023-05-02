@@ -1,0 +1,112 @@
+.contact_wrap_form {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.contact_form {
+  background-color: #f1f3f6;
+  padding: 50px;
+  border-radius: 10px;
+}
+.contact_form h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #111b27;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.contact_fields {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.contact_field_item {
+  margin-bottom: 16px;
+  padding: 0 15px;
+  position: relative;
+}
+.contact_field_item.w50 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.contact_field_item.w100 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.contact_field_item.w100.no-pdr {
+  padding-right: 0;
+}
+.contact_field_item input {
+  width: 100%;
+  height: 55px;
+  background-color: #fff;
+  padding: 6px 25px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+.contact_field_item textarea {
+  resize: vertical;
+  width: 100%;
+  background-color: #fff;
+  padding: 6px 25px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+.contact_field_item i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  text-align: center;
+  line-height: 55px;
+  background-color: #fff;
+}
+
+.contact_wrap_btn {
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact_wrap_btn button {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 14px;
+  background-color: #da3c3c;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: 0px 4px 20px #da3c3c80;
+  text-decoration: none !important;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  z-index: 1;
+  -webkit-appearance: button;
+}
+.contact_wrap_btn button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  left: -100%;
+  top: -100%;
+  background-color: #0a1d35;
+  transform: skewX(-40deg);
+  z-index: -1;
+  transition: all 0.6s;
+}
+.contact_wrap_btn button:hover::before {
+  width: 240%;
+  top: 50%;
+  transform: translateY(-50%) skewX(-40deg);
+  transition: all 0.6s;
+}

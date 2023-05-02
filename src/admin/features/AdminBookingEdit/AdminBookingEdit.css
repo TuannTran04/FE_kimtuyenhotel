@@ -1,0 +1,98 @@
+.adminEditBooking_page {
+}
+
+.adminEditBooking_header {
+  margin-bottom: 30px;
+}
+
+.adminEditBooking_header h2 {
+}
+
+.adminEditBooking_wrap_form {
+}
+
+.adminEditBooking_form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.adminEditBooking_form_fill {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.adminEditBooking_form_fill label {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.adminEditBooking_form_fill input {
+  display: block;
+  color: #333;
+  font-size: 15px;
+  height: 40px;
+  width: 100%;
+  padding: 6px 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+.adminEditBooking_form_fill select {
+  display: block;
+  color: #333;
+  font-size: 15px;
+  height: 40px;
+  width: 100%;
+  padding: 6px 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+.adminEditBooking_form_fill textarea {
+  display: block;
+  color: #333;
+  font-size: 15px;
+  width: 100%;
+  padding: 6px 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  resize: vertical;
+}
+
+.adminEditBooking_wrap_btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.adminEditBooking_btn {
+  cursor: pointer;
+  border-color: #009688;
+  height: 45px;
+  background: #009688;
+  border: 1px solid #009688;
+  color: #fff;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  padding: 6px 15px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  outline: none;
+}

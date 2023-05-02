@@ -1,0 +1,111 @@
+.detail_form {
+  /* background-color: #f1f3f6; */
+  /* max-width: 80%; */
+  margin: 0 auto;
+}
+
+.detail_form_top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  /* height: 50px; */
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #f1f3f6;
+}
+
+.detail_form_top p {
+  font-size: 15px;
+  color: black;
+}
+
+.detail_form_top_price {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.detail_form_bottom {
+  padding: 20px 30px;
+  background-color: #f1f3f6;
+}
+
+.detail_form_bottom form {
+}
+
+.detail_form_field {
+  margin-bottom: 10px;
+}
+
+.detail_form_field p {
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.detail_form_field input {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: transparent;
+  font-size: 14px;
+  color: #424242;
+  border: 1px solid #b39269;
+  border-radius: 100px;
+  outline: none;
+}
+
+.detail_form_field input[type="date"] {
+}
+
+.detail_form_field input[type="number"] {
+}
+
+.detail_form_btn {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.detail_form_btn a {
+  color: white;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #b39269;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: all 0.5 ease;
+}
+
+.detail_form_btn a:hover {
+  opacity: 0.7;
+}
+
+.detail_form_preview {
+  background-color: #f1f3f6;
+  /* max-width: 80%; */
+  margin: 20px auto;
+}
+
+.detail_form_preview h2 {
+  text-align: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.detail_form_estimate {
+  padding: 15px 20px 10px 20px;
+  display: flex;
+}
+
+.detail_form_estimate p {
+  margin-bottom: 5px;
+}
+
+.detail_form_estimate-left {
+  flex: 1;
+}
+.detail_form_estimate-right {
+  flex: 1;
+  text-align: right;
+  font-weight: 700;
+}

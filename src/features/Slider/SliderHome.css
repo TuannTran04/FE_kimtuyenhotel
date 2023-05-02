@@ -1,0 +1,123 @@
+.slider_home {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 700px;
+  /* margin-top: var(--nav-height); */
+  position: relative;
+}
+
+.slick-next {
+  right: 70px;
+  color: red !important;
+  z-index: 10000;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 30px;
+  line-height: 1;
+  opacity: 0.75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: 70px;
+  color: red;
+  z-index: 10000;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 30px;
+  line-height: 1;
+  opacity: 0.75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slider_home .slick-dots {
+  position: absolute;
+  bottom: 10px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.slider_home .slick-dots li.slick-active button:before {
+  opacity: 0.75;
+  color: white;
+}
+
+.slider_home .slick-dots li button:before {
+  font-size: 15px;
+}
+
+.slider_home .slick-list {
+  transform: translate3d(0, 0, 0);
+  height: 100%;
+}
+
+.slider_home .slick-list .slick-track {
+  height: 100%;
+}
+.slider_home .slick-list .slick-track .slick-slide {
+}
+
+.slider_home .slick-slide > div {
+  height: 100%;
+}
+.slider_home .slick-slide > div > div {
+  height: 100%;
+}
+
+.slider_home .wrap_slide_img {
+  height: 100%;
+}
+
+.slider_home .item_img {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.5);
+  /* filter: brightness(90%); */
+}
+
+.slider_item {
+  position: relative;
+}
+
+.slider_home .slider_intro {
+  color: #fff;
+  position: absolute;
+  min-width: 500px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider_home .slider_intro h2 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.slider_home .slider_intro p {
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  line-height: 30px;
+}

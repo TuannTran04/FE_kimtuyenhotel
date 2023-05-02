@@ -1,0 +1,43 @@
+.MuiTabs-vertical {
+  /* max-width: 40%; */
+}
+
+.tab_info {
+  /* max-width: 60%; */
+  flex: 1;
+  height: 250px;
+  overflow-y: auto;
+}
+
+.tab_info_wrapper {
+}
+
+.tab_info_top {
+  text-align: justify;
+  margin-bottom: 30px;
+}
+.tab_info_top p {
+}
+
+.tab_info_bottom {
+  /* display: inline-block;
+  width: 100%; */
+  display: flex;
+  width: 100%;
+}
+
+.tab_info_bottom_item {
+  /* display: inline-block;
+  vertical-align: top; */
+  flex: 1;
+}
+.tab_info_bottom_item h4 {
+  margin-bottom: 10px;
+}
+.tab_info_bottom_item ul {
+  padding-left: 17px;
+}
+.tab_info_bottom_item ul li {
+  list-style: disc;
+  padding-bottom: 10px;
+}

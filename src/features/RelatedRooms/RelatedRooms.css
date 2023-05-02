@@ -1,0 +1,236 @@
+.related_rooms {
+  margin-top: 50px;
+}
+
+.related_rooms h2 {
+  padding-left: 10px;
+  border-left: 5px solid #1490ac;
+  line-height: 0.9;
+  margin-bottom: 22px;
+  color: #14404a;
+  font-size: 24px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.related_rooms .swiper {
+  width: 100%;
+  height: 100%;
+}
+.related_rooms .swiper-wrapper {
+  width: 100%;
+  height: 630px;
+}
+
+.related_rooms .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.related_rooms .swiper-slide img {
+  /* display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; */
+}
+
+.related_room_item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+}
+.related_room_item:hover {
+  border: 1px solid #868686;
+}
+
+.related_room_header {
+  /* position: relative;
+  overflow: hidden; */
+  height: 300px;
+}
+.related_room_header img {
+  /* height: 230px; */
+  display: block;
+  transition: all 0.5s linear;
+  height: 100%;
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-style: none;
+}
+
+.related_room_detail {
+  /* position: static;
+  transform: none; */
+  color: #333;
+  padding: 20px 15px;
+}
+
+.related_room_title {
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  text-align: left;
+}
+.related_room_title a {
+  color: #333;
+  display: inline-block;
+  /* position: relative;
+  top: 0; */
+  transition: all 0.35s;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 10px 0;
+  outline: none;
+  border: 0;
+}
+
+.related_room_info {
+  margin-bottom: 15px;
+  padding: 0;
+  font-size: 15px;
+  transition-delay: all 0.15s 0.35s;
+  list-style: disc;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.related_room_info li {
+  list-style-type: disc;
+  margin: 0 15px;
+  color: #33312d;
+  /* position: relative; */
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+.related_room_info li:first-child {
+  list-style-type: none;
+  margin-left: 0 !important;
+}
+
+.related_room_info li:nth-child(2) {
+}
+.related_room_info li:nth-child(2)::marker {
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  text-indent: 0px !important;
+  text-align: start !important;
+  text-align-last: start !important;
+}
+.related_room_info li:last-child {
+  margin-right: 0 !important;
+}
+
+.related_room_description {
+  margin-bottom: 30px;
+  letter-spacing: 0.35px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  min-height: 72px;
+  overflow: hidden;
+  text-align: left;
+}
+.related_room_description p {
+}
+
+.related_room_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.related_room_price {
+}
+.related_room_price span {
+}
+
+.related_room_btn {
+  display: block;
+  color: #fff;
+  text-transform: capitalize;
+  background-color: #1490ac;
+  border-radius: 5px;
+  position: relative;
+  display: inline-block;
+}
+.related_room_btn:hover {
+  background: transparent;
+  color: #1490ac;
+  box-shadow: none;
+}
+.related_room_btn::before {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 1px;
+  background-color: #1490ac;
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.related_room_btn:hover::before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.related_room_btn::after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 1px;
+  background-color: #1490ac;
+}
+.related_room_btn:hover::after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+
+.related_room_btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 6px 15px;
+  z-index: 1;
+}
+.related_room_btn span::before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  transition: all 500ms ease;
+  position: absolute;
+  content: "";
+  background-color: #1490ac;
+  height: 1px;
+}
+.related_room_btn span:hover::before {
+  width: 100%;
+}
+.related_room_btn span::after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  transition: all 500ms ease;
+  position: absolute;
+  content: "";
+  background-color: #1490ac;
+  height: 1px;
+}
+.related_room_btn span:hover::after {
+  width: 100%;
+}

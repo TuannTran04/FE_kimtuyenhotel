@@ -1,0 +1,143 @@
+/* KEYFRAMES */
+
+@keyframes xoay {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(90deg);
+  }
+
+  40% {
+    transform: rotate(180deg);
+  }
+
+  60% {
+    transform: rotate(270deg);
+  }
+
+  80% {
+    transform: rotate(310deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.footer {
+  padding-top: 50px;
+  /* height: 370px; */
+  padding-bottom: 20px;
+  background-color: #333c49;
+}
+
+.footer_top {
+  /* width: 100%; */
+  text-align: center;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.footer_top h2 {
+  color: white;
+  font-size: 30px;
+}
+
+.footer_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  padding-bottom: 20px;
+}
+
+.footer_bottom_item {
+  flex: 1;
+  text-align: center;
+}
+
+.footer_bottom_item h2 {
+  color: white;
+  padding-bottom: 15px;
+}
+
+.footer_bottom_item p {
+  padding-bottom: 20px;
+  color: #a7aeb9;
+}
+
+.footer_bottom_item .footer_bottom_psoc {
+  color: white;
+}
+
+.footer_bottom_socials {
+  display: inline-block;
+}
+.footer_bottom_socials li {
+  display: inline-block;
+  padding: 0 10px;
+}
+.footer_bottom_socials li a {
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  background: rgba(50, 157, 35, 0.06);
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  /* margin-right: 8px; */
+  border: 1px solid #9da4ab;
+}
+.footer_bottom_socials li a i {
+  display: inline-block;
+  transition: 0.4s;
+  transform: rotateY(0deg);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+}
+
+.footer_bottom_socials a:hover {
+  color: #000;
+  background: #fff;
+  border: 1px solid transparent;
+}
+
+.footer_bottom_socials a:hover i {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+.footer_copyright {
+  padding: 33px 0px 20px;
+  text-align: center;
+}
+
+.footer_copyright p {
+  color: #a7aeb9;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 2;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.footer_copyright p i {
+  color: red;
+  animation: xoay 4s linear infinite;
+}
+
+.footer_copyright p span {
+  color: #fff;
+  font-weight: 700;
+}

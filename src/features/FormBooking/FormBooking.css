@@ -1,0 +1,65 @@
+.booking_bottom_right form {
+  max-width: 70%;
+  width: 100%;
+}
+
+.booking_bottom_right h2 {
+  font-size: 40px;
+  word-spacing: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.booking_form_field {
+  margin-bottom: 20px;
+}
+.booking_form_field h4 {
+  padding-bottom: 10px;
+}
+.booking_form_field .required {
+  padding-left: 5px;
+  color: red;
+}
+.booking_form_field input {
+  padding: 10px 10px;
+  width: 100%;
+  border: 1px solid #c1c0c1;
+  outline: none;
+}
+.booking_form_field textarea {
+  padding: 15px 15px;
+  width: 100%;
+  border: 1px solid #c1c0c1;
+  outline: none;
+  resize: vertical;
+}
+
+.booking_form_row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking_form_row .booking_form_field {
+  width: 47%;
+}
+.booking_form_row input {
+}
+
+.booking_form_btn {
+  color: white;
+  background-color: #b39269;
+
+  padding: 10px 30px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  opacity: 1;
+  transition: background-color 0.5s ease-out;
+}
+
+.booking_form_btn:hover {
+  background-color: #ceb99f;
+  opacity: 0.8;
+}

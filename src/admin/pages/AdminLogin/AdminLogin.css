@@ -1,0 +1,196 @@
+.adminLogin_page {
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+}
+
+.adminLogin_background {
+  background: url(../../assets/image/backgroun3.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  filter: blur(10px);
+}
+
+.adminLogin_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 550px;
+  margin-top: 20px;
+  background: url(../../assets/image/backgroun3.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.adminLogin_item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58%;
+  height: 100%;
+  color: #fff;
+  background: transparent;
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.adminLogin_item .adminLogin_logo {
+  color: #fff;
+  font-size: 30px;
+}
+.adminLogin_text-item h2 {
+  font-size: 40px;
+  line-height: 1;
+}
+.adminLogin_text-item p {
+  font-size: 16px;
+  margin: 20px 0;
+}
+.adminLogin_social-icon a i {
+  color: #fff;
+  font-size: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.adminLogin_social-icon a:hover i {
+  transform: scale(1.2);
+}
+.adminLogin_container .adminLogin-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 58%);
+  height: 100%;
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.adminLogin-section .formAdminLogin-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.adminLogin-section .formAdminLogin-box.adminLogin {
+  transform: translateX(0px);
+  transition: transform 0.6s ease;
+  transition-delay: 0.7s;
+}
+
+.adminLogin-section .formAdminLogin-box h2 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.formAdminLogin-box .inputAdminLogin-box {
+  width: 340px;
+  height: 50px;
+  border-bottom: 2px solid#fff;
+  margin: 30px 0;
+  position: relative;
+}
+.inputAdminLogin-box input {
+  color: white;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding-right: 28px;
+}
+.inputAdminLogin-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 600px;
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+.inputAdminLogin-box .adminLogin_icon {
+  position: absolute;
+  top: 13px;
+  right: 0;
+  font-size: 19px;
+}
+
+.inputAdminLogin-box input:focus + .adminLogin_label {
+  top: -5px;
+}
+
+.inputAdminLogin-box input:valid + .adminLogin_label {
+  top: -5px;
+}
+
+.adminLogin_icon_show {
+  position: absolute;
+  top: 13px;
+  right: 30px;
+  font-size: 19px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.inputAdminLogin-box input[name="password"]:valid ~ .adminLogin_icon_show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.rememberAdmin-password {
+  font-size: 14px;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.rememberAdmin-password label input {
+  accent-color: #fff;
+  margin-right: 3px;
+}
+.rememberAdmin-password a {
+  color: #fff;
+  text-decoration: none;
+}
+.rememberAdmin-password a:hover {
+  text-decoration: underline;
+}
+.adminLogin_btn {
+  background: #fff;
+  width: 100%;
+  height: 45px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #f72d7a;
+  font-size: 16px;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.4);
+}
+.createAdmin-account {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 25px;
+}
+.createAdmin-account p a {
+  color: #fff;
+  font-weight: 600px;
+  text-decoration: none;
+}
+.createAdmin-account p a:hover {
+  text-decoration: underline;
+}

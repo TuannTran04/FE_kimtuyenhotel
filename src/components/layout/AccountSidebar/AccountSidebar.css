@@ -1,0 +1,84 @@
+.accountSidebar {
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  margin-top: 0;
+  position: fixed;
+  top: 70px;
+  transition: all 0.2s ease-in-out 0s;
+  width: 260px;
+  height: 100%;
+  z-index: 1001;
+  border-right: 1px solid #edf2f9;
+  overflow-y: auto;
+}
+
+.accountSidebar_menu {
+  /* height: 100%; */
+  padding: 30px 0 0 15px;
+}
+
+.accountSidebar_menu ul {
+  height: 100%;
+  font-size: 15px;
+  padding: 0;
+  position: relative;
+  margin-right: 15px;
+}
+
+.accountSidebar_menu ul li {
+  margin-bottom: 3px;
+  position: relative;
+}
+.accountSidebar_menu ul li:last-child {
+  margin-bottom: 100px;
+  /* padding-bottom: 100px; */
+}
+
+.accountSidebar_menu ul li.active a {
+  border-radius: 8px;
+  color: #fff !important;
+  box-shadow: 0 7px 12px 0 rgba(95, 118, 232, 0.21);
+  opacity: 1;
+  background: #009688;
+}
+
+.accountSidebar_menu ul li a {
+  color: black;
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 12px 18px;
+  position: relative;
+  transition: all 0.2s ease-in-out 0s;
+}
+.accountSidebar_menu ul li a:hover {
+  color: #fff !important;
+  background-color: #01776c;
+}
+
+.accountSidebar_menu ul li a i {
+  display: inline-block;
+  font-size: 19px;
+  line-height: 24px;
+  text-align: left;
+  vertical-align: middle;
+  width: 20px;
+  transition: all 0.2s ease-in-out 0s;
+  margin-right: 10px;
+}
+
+.accountSidebar_menu ul li a i span {
+  transition: all 0.2s ease-in-out 0s;
+  display: inline-block;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.accountSidebar_list_devider {
+  border-bottom: 1px solid #edf2f9;
+  height: 13px;
+  display: inline-block;
+  width: 100%;
+}

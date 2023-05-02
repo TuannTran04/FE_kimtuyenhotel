@@ -1,0 +1,41 @@
+.arrow_up {
+  display: inline-block;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10000;
+  border: 1px solid black;
+  border-radius: 50%;
+  background: #071112;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0 10px 3px rgb(108 98 98 / 20%);
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+.arrowUp_hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.arrowUp_show {
+  visibility: "visible" !important;
+  opacity: 1;
+}
+
+.icon_up {
+  height: 100%;
+  width: 100%;
+  line-height: 50px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

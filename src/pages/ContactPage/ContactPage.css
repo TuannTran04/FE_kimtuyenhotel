@@ -1,0 +1,141 @@
+.contact_page {
+}
+
+.contact_top {
+  height: 550px;
+  overflow: hidden;
+  position: relative;
+}
+
+.contact_top_img {
+  background-image: url("/public/assets/ContactPage_img/contact_top.avif");
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -200px;
+}
+
+.contact_top_intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.contact_top_heading {
+  display: block;
+  color: white;
+  font-size: 60px;
+  text-transform: uppercase;
+}
+
+.contact_top_para {
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.contact_bottom {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.contact_bottom_wrapper {
+  /* display: flex; */
+  max-width: 1350px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.contact_info {
+}
+
+.contact_info_content {
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 50px #0a1d350f;
+}
+
+.contact_info_top {
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+.contact_info_top h3 {
+  font-size: 36px;
+  color: #0a1d35;
+  font-weight: 700;
+}
+.contact_info_top span {
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 2px;
+  background-color: #0a1d3526;
+  overflow: hidden;
+}
+.contact_info_top span::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background-color: #da3c3c;
+  border-radius: 5px;
+  bottom: 0;
+  animation: animateLine 8s linear infinite;
+  z-index: 10;
+}
+@keyframes animateLine {
+  0% {
+    left: -110%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+.contact_info_bottom {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.contact_info_item {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  padding: 0 15px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.contact_info_item i {
+  width: 50px;
+  height: 50px;
+  background-color: #da3c3c;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+}
+.contact_info_item h3 {
+  font-size: 20px;
+  color: #111b27;
+  margin: 15px 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.contact_info_item p {
+  margin-bottom: 16px;
+}
+
+.contact_ggmap {
+  border-radius: 0;
+}
