@@ -42,6 +42,7 @@ import AccountPage from "./pages/AccountPage/AccountPage";
 import HistoryBookingPage from "./pages/HistoryBookingPage/HistoryBookingPage";
 import ChangeInfoPage from "./pages/ChangeInfoPage/ChangeInfoPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage/ChangePasswordPage";
+import MusicChillPage from "./pages/MusicChillPage/MusicChillPage";
 
 function App() {
   const { pathname } = useLocation();
@@ -96,6 +97,10 @@ function App() {
           <Route
             path="/account-page/history-booking"
             element={<HistoryBookingPage />}
+          />
+          <Route
+            path="/account-page/music-chill"
+            element={<MusicChillPage />}
           />
         </Route>
 

@@ -4,8 +4,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { arrIconSoc, arrInputForm } from "./LoginConst";
 import { handleLogin } from "../../services/userService";
 import "./LoginPage.css";
+import Loading from "../../components/layout/Loading/Loading";
 
 const LoginPage = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [form, setFormValue] = useState({
     email: "",
@@ -50,6 +52,11 @@ const LoginPage = (props) => {
         inputPasswordRef.current.type === "password" ? "text" : "password";
     }
   };
+  // Regex kiểm tra định dạng email
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   // post data from client to server and get respone data from server
   const handleSubmit = async (e) => {
@@ -57,6 +64,13 @@ const LoginPage = (props) => {
     // console.log(form);
     try {
       e.preventDefault();
+      if (!isValidEmail(email)) {
+        // Nếu email không đúng định dạng, hiển thị thông báo lỗi
+        setErrMessage("Email không đúng định dạng");
+        return;
+      }
+      setIsLoading(true);
+
       // setFormValue((prevState) => ({
       //   ...prevState,
       //   email: "",
@@ -66,9 +80,11 @@ const LoginPage = (props) => {
       // console.log(response);
 
       if (response && response.errCode) {
+        setIsLoading(false);
         setErrMessage(response.message);
       } else {
         // logic when login success
+        setIsLoading(false);
         localStorage.setItem("info-user", JSON.stringify(response.user));
         window.location.href = "/";
         navigate("/", { state: { userId: response.user.id } });
@@ -77,6 +93,7 @@ const LoginPage = (props) => {
       }
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
       setErrMessage(error.message || error.response.data.message);
     }
   };
@@ -115,6 +132,7 @@ const LoginPage = (props) => {
 
   return (
     <div className="login_page">
+      {isLoading ? <Loading fullScreen /> : ""}
       <div className="login_background"></div>
 
       <div className="login_container">

@@ -4,10 +4,12 @@ import SliderService from "../../features/SliderService/SliderService";
 import { getListService } from "../../services/roomService";
 import ProductPag from "../ProductPage/ProductPag";
 import "./ServicePage.css";
+import Loading from "../../components/layout/Loading/Loading";
 
 const PAGE_SIZE = 2;
 
 const ServicePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [searchParams] = useSearchParams();
   const pageNumber = searchParams.get("page");
   // console.log(pageNumber);
@@ -24,12 +26,15 @@ const ServicePage = () => {
   useEffect(() => {
     const renderServices = async () => {
       try {
+        setIsLoading(true);
         const res = await getListService(currentPage, PAGE_SIZE);
         // console.log(res.total);
         setServices(res.data);
         setTotalPages(Math.ceil(res.total / PAGE_SIZE));
+        setIsLoading(false);
       } catch (err) {
         console.log(err);
+        setIsLoading(false);
       }
     };
     renderServices();
@@ -56,32 +61,36 @@ const ServicePage = () => {
 
       <div className="service_bottom">
         <div className="service_bottom_wrapper">
-          {services.map((service, i) => {
-            return (
-              <div className="service_item" key={service.id}>
-                <div
-                  className={`service_wrap_content${
-                    i % 2 === 1 ? " right" : ""
-                  }`}
-                >
-                  <div className="service_content">
-                    <h4>{service.name}</h4>
-                    <div className="service_description">
-                      <p>{service.description}</p>
+          {isLoading ? (
+            <Loading fullScreen />
+          ) : (
+            services.map((service, i) => {
+              return (
+                <div className="service_item" key={service.id}>
+                  <div
+                    className={`service_wrap_content${
+                      i % 2 === 1 ? " right" : ""
+                    }`}
+                  >
+                    <div className="service_content">
+                      <h4>{service.name}</h4>
+                      <div className="service_description">
+                        <p>{service.description}</p>
 
-                      <span>
-                        Giờ mở cửa: {service.opening_time} đến{" "}
-                        {service.closing_time}
-                      </span>
+                        <span>
+                          Giờ mở cửa: {service.opening_time} đến{" "}
+                          {service.closing_time}
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  <div className="service_slider">
+                    <SliderService imgSlider={service.img_slider} />
+                  </div>
                 </div>
-                <div className="service_slider">
-                  <SliderService imgSlider={service.img_slider} />
-                </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
           {/* <div className="service_item">
             <div className="service_wrap_content">
               <div className="service_content">

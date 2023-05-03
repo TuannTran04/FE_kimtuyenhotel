@@ -6,8 +6,10 @@ import LoginPage from "../LoginPage/LoginPage";
 import { registerUser } from "../../services/userService";
 import { arrIconSoc, arrInputForm } from "./RegisterConst";
 import "./RegisterPage.css";
+import Loading from "../../components/layout/Loading/Loading";
 
 const RegisterPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setFormValue] = useState({
     email: "",
     password: "",
@@ -60,6 +62,7 @@ const RegisterPage = () => {
   // post data from client to server and get respone data from server
   const handleSubmit = async (e) => {
     setErrMessage("");
+
     try {
       e.preventDefault();
       if (password !== confirmPassword) {
@@ -72,6 +75,7 @@ const RegisterPage = () => {
         return;
       }
       // console.log(form);
+      setIsLoading(true);
       const response = await registerUser(
         email,
         password,
@@ -81,21 +85,25 @@ const RegisterPage = () => {
       // console.log(response);
 
       if (response && response.errCode) {
+        setIsLoading(false);
         setErrMessage(response.message);
       } else {
         // logic when login success
+        setIsLoading(false);
         navigate("/login", { state: { email, password } });
         alert("create success");
         // console.log("create success");
       }
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
       setErrMessage(error.message || error.response.data.message);
     }
   };
 
   return (
     <div className="register_page">
+      {isLoading ? <Loading fullScreen /> : ""}
       <div className="register_background"></div>
 
       <div className="register_container">

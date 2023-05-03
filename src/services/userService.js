@@ -51,10 +51,21 @@ const getBookingsAccount = (
     `/api/v1/get-bookings-account?page=${currentPage}&pageSize=${PAGE_SIZE}&customerId=${customerId}&filterStatus=${filterStatus}`
   );
 };
-const searchBookingsAccount = (searchQuery, customerId, filterStatus) => {
+const searchBookingsAccount = (
+  currentPage,
+  pageSize,
+  searchQuery,
+  customerId,
+  filterStatus
+) => {
   return axios.get(
-    `/api/v1/search-bookings-account?q=${searchQuery}&customerId=${customerId}&filterStatus=${filterStatus}`
+    `/api/v1/search-bookings-account?page=${currentPage}&pageSize=${pageSize}&q=${searchQuery}&customerId=${customerId}&filterStatus=${filterStatus}`
   );
+};
+
+//********************* MANAGE MUSIC ***********************//
+const getListChannelId = () => {
+  return axios.get(`/api/v1/get-channels-admin`);
 };
 
 export {
@@ -66,4 +77,5 @@ export {
   forgetPassword,
   getBookingsAccount,
   searchBookingsAccount,
+  getListChannelId,
 };

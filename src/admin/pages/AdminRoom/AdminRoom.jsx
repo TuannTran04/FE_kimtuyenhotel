@@ -178,7 +178,7 @@ const AdminRoom = () => {
                       className="adminRoom_room_img"
                       // src="../../assets/room_ks_1.jpg"
                       // src={`http://localhost:9090${room.avatar}`}
-                      src={process.env.REACT_APP_BACKEND_URL + `${room.avatar}`}
+                      src={room.avatar_2}
                       alt="pic"
                     />
                   </td>

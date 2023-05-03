@@ -64,7 +64,7 @@ const FormDetail = ({ roomData }) => {
     if (localStorage.getItem("info-user")) {
       // Kiểm tra số lượng phòng còn lại
       if (roomData.quantity <= 0) {
-        alert("het phong");
+        alert("Đã hết phòng này!");
       } else {
         // kiểm tra checkin không được bằng hoặc lớn hơn checkout
         if (moment(checkin).isSameOrAfter(moment(checkout))) {

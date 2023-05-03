@@ -4,6 +4,7 @@ import "./SliderHome.css";
 import clsx from "clsx";
 import Slider from "react-slick";
 import { getInfoHotelData } from "../../services/roomService";
+import Loading from "../../components/layout/Loading/Loading";
 
 // import { baseUrl } from "./config";
 

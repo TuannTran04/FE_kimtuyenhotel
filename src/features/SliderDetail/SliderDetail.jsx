@@ -62,7 +62,6 @@ const SliderDetail = ({ roomData }) => {
   // console.log(img_slider);
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  // console.log(process.env.REACT_APP_BACKEND_URL + `${roomData.avatar}`);
 
   return (
     <div>
@@ -80,10 +79,7 @@ const SliderDetail = ({ roomData }) => {
       >
         <SwiperSlide>
           {/* <img src={`http://localhost:9090${roomData.avatar}`} /> */}
-          <img
-            src={process.env.REACT_APP_BACKEND_URL + `${roomData.avatar}`}
-            alt="pic"
-          />
+          <img src={roomData.avatar_2} alt="pic" />
         </SwiperSlide>
         {img_slider.map((img, i) => {
           return (
@@ -121,10 +117,7 @@ const SliderDetail = ({ roomData }) => {
       >
         <SwiperSlide>
           {/* <img src={`http://localhost:9090${roomData.avatar}`} /> */}
-          <img
-            src={process.env.REACT_APP_BACKEND_URL + `${roomData.avatar}`}
-            alt={roomData.avatar}
-          />
+          <img src={roomData.avatar_2} alt={roomData.avatar_2} />
         </SwiperSlide>
         {img_slider.map((img, i) => {
           return (

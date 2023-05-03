@@ -1,0 +1,95 @@
+/* //////// */
+.musicChillPage_page {
+  user-select: none;
+}
+
+.musicChillPage_page h1 {
+  margin-bottom: 20px;
+}
+
+.musicChillPage_top_page {
+  min-height: 150px;
+  margin-bottom: 30px;
+}
+
+.musicChillPage_wrap_singer {
+  max-width: 550px;
+  overflow-x: auto;
+
+  white-space: nowrap;
+  display: inline-block;
+}
+.musicChillPage_btn_singer {
+  padding: 10px 20px;
+  margin: 0 5px;
+}
+.musicChillPage_btn_singer.active {
+  background-color: red;
+  color: white;
+}
+
+.musicChillPage_wrap_search {
+  /* text-align: center; */
+}
+.musicChillPage_search {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+.musicChillPage_wrap_search a {
+  font-size: 15px;
+  background: #009688;
+  border-color: #009688;
+  color: #fff;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 6px 12px;
+  margin-left: 50px;
+}
+
+.musicChillPage_content {
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.musicChillPage_wrap_song {
+  max-height: 550px;
+  overflow-y: auto;
+  min-width: 500px;
+  max-width: 50%;
+}
+
+.musicChillPage_song_item {
+  margin-bottom: 15px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 7px 12px 0 rgba(95, 118, 232, 0.21);
+  opacity: 1;
+  background: #009688;
+  cursor: pointer;
+  padding: 12px 18px;
+}
+
+.musicChillPage_song_item:hover {
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background-color: #01776c;
+}
+.musicChillPage_song_item.active {
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background-color: red;
+}
+
+.musicChillPage_song_item a {
+  color: #fff !important;
+}
+.musicChillPage_song_item img {
+  display: block;
+}

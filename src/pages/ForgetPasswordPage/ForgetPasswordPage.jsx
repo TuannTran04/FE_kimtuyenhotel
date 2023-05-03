@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { forgetPassword, registerUser } from "../../services/userService";
 import { arrIconSoc, arrInputForm } from "./ForgetPasswordConst";
 import "./ForgetPasswordPage.css";
+import Loading from "../../components/layout/Loading/Loading";
 
 const ForgetPasswordPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setFormValue] = useState({
     email: "",
     password: "",
@@ -68,13 +70,16 @@ const ForgetPasswordPage = () => {
         setErrMessage("Email không đúng định dạng");
         return;
       }
+      setIsLoading(true);
       // console.log(form);
       const response = await forgetPassword(email, password, confirmPassword);
       // console.log(response);
 
       if (response && response.errCode) {
+        setIsLoading(false);
         setErrMessage(response.message);
       } else {
+        setIsLoading(false);
         // logic when login success
         navigate("/login", { state: { email, password } });
         alert("change pass success");
@@ -82,12 +87,14 @@ const ForgetPasswordPage = () => {
       }
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
       setErrMessage(error.message || error.response.data.message);
     }
   };
 
   return (
     <div className="forget_page">
+      {isLoading ? <Loading fullScreen /> : ""}
       <div className="forget_background"></div>
 
       <div className="forget_container">

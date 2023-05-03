@@ -1,16 +1,24 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useOutletContext,
+  useSearchParams,
+} from "react-router-dom";
 import AccountPagination from "../../components/layout/AccountPagination/AccountPagination";
 import {
   getBookingsAccount,
   searchBookingsAccount,
 } from "../../services/userService";
 import "./HistoryBookingPage.css";
+import Loading from "../../components/layout/Loading/Loading";
 
-const PAGE_SIZE = 5;
+// const PAGE_SIZE = 5;
 
 const HistoryBookingPage = () => {
+  const [isLoading, setIsLoading] = useOutletContext();
+
   const user_id = localStorage.getItem("info-user")
     ? JSON.parse(localStorage.getItem("info-user")).id
     : "";
@@ -23,6 +31,7 @@ const HistoryBookingPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(parseInt(pageNumber) || 1);
   const [totalPages, setTotalPages] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
 
   const newUrl = `${window.location.pathname}?page=${currentPage}`;
   window.history.pushState(null, null, newUrl);
@@ -48,6 +57,11 @@ const HistoryBookingPage = () => {
     }
   };
 
+  const handleChangePageSize = (e) => {
+    const { name, value } = e.target;
+    setPageSize((prevState) => value);
+  };
+
   const statusNames = [
     "Tiếp nhận",
     "Đã xác nhận",
@@ -71,26 +85,38 @@ const HistoryBookingPage = () => {
     const renderBookings = async () => {
       try {
         if (searchQuery.trim() !== "") {
-          const res = await searchBookingsAccount(searchQuery, user_id, filter);
+          setIsLoading(true);
+          const res = await searchBookingsAccount(
+            currentPage,
+            pageSize,
+            searchQuery,
+            user_id,
+            filter
+          );
           console.log(res);
           setBookings(res.data);
+          setTotalPages(Math.ceil(res.total / pageSize));
+          setIsLoading(false);
         } else {
+          setIsLoading(true);
           const res = await getBookingsAccount(
             currentPage,
-            PAGE_SIZE,
+            pageSize,
             user_id,
             filter
           );
           // console.log(res.total);
           setBookings(res.data);
-          setTotalPages(Math.ceil(res.total / PAGE_SIZE));
+          setTotalPages(Math.ceil(res.total / pageSize));
+          setIsLoading(false);
         }
       } catch (err) {
         console.log(err);
+        setIsLoading(false);
       }
     };
     renderBookings();
-  }, [currentPage, searchQuery, form]);
+  }, [currentPage, searchQuery, form, pageSize]);
 
   // thay đổi page trên url thì update lại data
   useEffect(() => {
@@ -130,6 +156,21 @@ const HistoryBookingPage = () => {
             <option value={2}>Đã thanh toán</option>
             <option value={3}>Đã trả phòng</option>
             <option value={4}>Đã hủy</option>
+          </select>
+        </label>
+
+        <label>
+          Hiện số lượng:
+          <select
+            className="historyBooking_tools_pageSize"
+            name="pageSize"
+            value={pageSize}
+            onChange={handleChangePageSize}
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={15}>15</option>
+            <option value={20}>20</option>
           </select>
         </label>
       </form>

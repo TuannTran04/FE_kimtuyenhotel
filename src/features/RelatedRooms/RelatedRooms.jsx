@@ -51,8 +51,8 @@ const RelatedRooms = () => {
                 <div className="related_room_header">
                   <img
                     // src={`http://localhost:9090${room.avatar}`}
-                    src={process.env.REACT_APP_BACKEND_URL + `${room.avatar}`}
-                    alt={room.avatar}
+                    src={room.avatar_2}
+                    alt={room.avatar_2}
                   />
                 </div>
 

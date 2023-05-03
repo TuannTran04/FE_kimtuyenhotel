@@ -81,6 +81,11 @@
   padding: 5px 20px;
   outline: none;
 }
+.product_tools_pageSize {
+  margin-left: 10px;
+  padding: 5px 5px;
+  outline: none;
+}
 
 .product_item {
   width: 100%;

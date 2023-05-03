@@ -11,11 +11,10 @@ const AdminAddroom = () => {
     area: "",
     view_direction: "",
     bed_type: "",
-    image: null,
-    img_slider: ["", "", "", "", ""],
+    image: "",
+    img_slider: "",
   });
   // console.log(form);
-  const inputRefFile = useRef(null);
 
   const {
     name,
@@ -33,17 +32,10 @@ const AdminAddroom = () => {
   const handleChange = (e) => {
     // console.log([e.target]);
     const { name, value } = e.target;
-    if (name === "image") {
-      setFormValue((prevState) => ({
-        ...prevState,
-        image: e.target.files[0],
-      }));
-    } else {
-      setFormValue((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    }
+    setFormValue((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   const handleSliderImageChange = (e, index) => {
@@ -73,18 +65,8 @@ const AdminAddroom = () => {
       return;
     }
     try {
-      const formData = new FormData();
-      Object.entries(form).forEach(([key, value]) => {
-        if (value !== null) {
-          if (key === "image") {
-            formData.append(key, value);
-          } else {
-            formData.append(key, value.toString());
-          }
-        }
-      });
+      const formData = form;
 
-      console.log(...formData.entries());
       // console.log(formData);
 
       const response = await addRoomAdmin(formData);
@@ -99,10 +81,9 @@ const AdminAddroom = () => {
         area: "",
         view_direction: "",
         bed_type: "",
-        image: null,
-        img_slider: ["", "", "", "", ""],
+        image: "",
+        img_slider: "",
       }));
-      inputRefFile.current.value = "";
     } catch (error) {
       console.log(error);
       alert(error.response.data.error || "ADD error");
@@ -179,11 +160,11 @@ const AdminAddroom = () => {
           <div className="adminAddRoom_form_fill">
             <label htmlFor="">Ảnh đại diện</label>
             <input
-              ref={inputRefFile}
               name="image"
-              type="file"
+              type="text"
               onChange={handleChange}
-              placeholder=""
+              placeholder="link ảnh"
+              value={form.image}
             />
           </div>
           <div className="adminAddRoom_form_fill">

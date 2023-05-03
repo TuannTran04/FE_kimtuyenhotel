@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { arrTab, arrTab_2 } from "./AccountSidebarConst";
 import "./AccountSidebar.css";
 
-const AccountSidebar = ({ location }) => {
+const AccountSidebar = ({ location, setIsLoading }) => {
   const currentPath = location.pathname;
   const getTabClass = (tabPath) => {
     return tabPath === currentPath ? "active" : "";
   };
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [currentPath]);
 
   return (
     <div className="accountSidebar">

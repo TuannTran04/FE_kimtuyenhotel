@@ -46,21 +46,13 @@ const searchRoomsAdmin = (searchQuery, filterStatus) => {
   );
 };
 const addRoomAdmin = (formData) => {
-  return axios.post("/api/v1/add-room-admin", formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
+  return axios.post("/api/v1/add-room-admin", formData);
 };
 const getRoomEdit = (roomId) => {
   return axios.get(`/api/v1/get-room-edit?roomId=${roomId}`);
 };
 const editRoom = (formData, roomId) => {
-  return axios.put(`/api/v1/edit-room-admin?roomId=${roomId}`, formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
+  return axios.put(`/api/v1/edit-room-admin?roomId=${roomId}`, formData);
 };
 const deleteRoom = (roomId) => {
   return axios.delete(`/api/v1/delete-room`, { data: { roomId } });

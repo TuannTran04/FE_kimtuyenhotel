@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ChangePasswordPage.css";
+import { useOutletContext } from "react-router-dom";
 import { changePasswordUser } from "../../services/userService";
 
 const ChangePasswordPage = () => {
+  const [isLoading, setIsLoading] = useOutletContext();
+  // console.log("CHANGE PASSWORD PAGE", isLoading);
+
   const user_id = localStorage.getItem("info-user")
     ? JSON.parse(localStorage.getItem("info-user")).id
     : "";
@@ -36,11 +40,13 @@ const ChangePasswordPage = () => {
       return;
     }
     try {
+      setIsLoading(true);
       const formData = form;
       // console.log(formData);
 
       const response = await changePasswordUser(formData, user_id);
       // console.log(response);
+      setIsLoading(false);
       alert(response.message);
 
       setFormValue((prev) => ({
@@ -51,6 +57,7 @@ const ChangePasswordPage = () => {
       }));
     } catch (error) {
       // console.log(error);
+      setIsLoading(false);
       alert(error.response.data.err.err || "EDIT error");
     }
   };

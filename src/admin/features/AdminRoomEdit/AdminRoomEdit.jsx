@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getRoomEdit, editRoom } from "../../services/adminService";
 import "./AdminRoomEdit.css";
@@ -11,48 +11,36 @@ const AdminEditRoom = () => {
     name: "",
     description: "",
     price: "",
-    discount: "",
+    // discount: "",
     quantity: "",
     area: "",
     view_direction: "",
     bed_type: "",
-    image: "",
-    imageUrlTemp: "",
-    avatar: "",
-    img_slider: ["", "", "", "", ""],
+    avatar_2: "",
+    img_slider: "",
   });
   console.log(form);
 
-  const inputRefFile = useRef(null);
   const {
     name,
     description,
     price,
-    discount,
+    // discount,
     quantity,
     area,
     view_direction,
     bed_type,
-    image,
-    imageUrlTemp,
-    avatar,
+    avatar_2,
     img_slider,
   } = form;
 
   const handleChange = (e) => {
     // console.log([e.target]);
     const { name, value } = e.target;
-    if (name === "image") {
-      setFormValue((prevState) => ({
-        ...prevState,
-        image: e.target.files[0],
-      }));
-    } else {
-      setFormValue((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    }
+    setFormValue((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   const handleSliderImageChange = (e, index) => {
@@ -63,17 +51,6 @@ const AdminEditRoom = () => {
       setFormValue((prev) => ({ ...prev, [name]: images }));
     }
   };
-
-  useEffect(() => {
-    if (image) {
-      const url = URL.createObjectURL(image);
-      setFormValue((prevState) => ({
-        ...prevState,
-        imageUrlTemp: url,
-      }));
-      return () => URL.revokeObjectURL(url);
-    }
-  }, [image]);
 
   const handleSubmitForm = async (e) => {
     e.preventDefault();
@@ -86,7 +63,7 @@ const AdminEditRoom = () => {
       !area ||
       !view_direction ||
       !bed_type ||
-      !avatar ||
+      !avatar_2 ||
       img_slider.length !== 5 ||
       img_slider.some((item) => item.trim() === "")
     ) {
@@ -94,23 +71,11 @@ const AdminEditRoom = () => {
       return;
     }
     try {
-      const formData = new FormData();
-      Object.entries(form).forEach(([key, value]) => {
-        if (value !== null) {
-          if (key === "image") {
-            formData.append(key, value);
-          } else {
-            formData.append(key, value.toString());
-          }
-        }
-      });
-      console.log(...formData.entries());
-      console.log(formData);
+      const formData = form;
 
       const response = await editRoom(formData, roomId);
       console.log(response);
       alert(response.message);
-      inputRefFile.current.value = "";
       navigate("/admin/admin-room");
     } catch (error) {
       console.log(error);
@@ -139,8 +104,6 @@ const AdminEditRoom = () => {
     fetchData();
   }, [roomId]);
 
-  console.log(process.env.REACT_APP_BACKEND_URL + `${avatar}`);
-
   return (
     <div className="adminEditRoom_page">
       <div className="adminEditRoom_header">
@@ -168,7 +131,7 @@ const AdminEditRoom = () => {
               value={price}
             />
           </div>
-          <div className="adminEditRoom_form_fill">
+          {/* <div className="adminEditRoom_form_fill">
             <label htmlFor="">Giảm giá</label>
             <input
               name="discount"
@@ -177,7 +140,7 @@ const AdminEditRoom = () => {
               placeholder="10% hoặc 500000"
               value={discount}
             />
-          </div>
+          </div> */}
           <div className="adminEditRoom_form_fill">
             <label htmlFor="">Số lượng</label>
             <input
@@ -234,30 +197,24 @@ const AdminEditRoom = () => {
             <label htmlFor="">Ảnh đại diện</label>
             <input
               name="image"
-              type="file"
+              type="text"
               onChange={handleChange}
-              placeholder=""
-              ref={inputRefFile}
+              placeholder="Link ảnh"
+              value={avatar_2}
             />
             "Ảnh hiện tại:"
-            {avatar && (
-              <img
-                style={{
-                  width: "250px",
-                  height: "200px",
-                  objectFit: "cover",
-                  display: "flex",
-                  margin: "5px auto 0",
-                }}
-                // src={image ? imageUrlTemp : `http://localhost:9090${avatar}`}
-                src={
-                  image
-                    ? imageUrlTemp
-                    : process.env.REACT_APP_BACKEND_URL + `${avatar}`
-                }
-                alt={avatar}
-              />
-            )}
+            <img
+              style={{
+                width: "250px",
+                height: "200px",
+                objectFit: "cover",
+                display: "flex",
+                margin: "5px auto 0",
+              }}
+              // src={image ? imageUrlTemp : `http://localhost:9090${avatar}`}
+              src={avatar_2}
+              alt={avatar_2}
+            />
           </div>
           <div className="adminAddRoom_form_fill">
             <label>Link slide ảnh chi tiết (x5)</label>

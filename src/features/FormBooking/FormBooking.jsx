@@ -9,8 +9,10 @@ import {
 import moment from "moment";
 import "./FormBooking.css";
 import { createBookings } from "../../services/roomService";
+import Loading from "../../components/layout/Loading/Loading";
 
 const FormBooking = ({ infoBooking }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const userId = localStorage.getItem("info-user")
     ? JSON.parse(localStorage.getItem("info-user")).id
@@ -97,20 +99,23 @@ const FormBooking = ({ infoBooking }) => {
     console.log(dataBooking);
     try {
       e.preventDefault();
-
+      setIsLoading(true);
       const response = await createBookings(dataBooking);
       console.log(response);
+      setIsLoading(false);
       alert("booking success");
       navigate("/");
     } catch (error) {
       console.log(error);
       console.log(error.response.data.error.error);
+      setIsLoading(false);
       alert(error.response.data.error.error || "booking error");
     }
   };
 
   return (
     <>
+      {isLoading ? <Loading fullScreen /> : ""}
       <h2>Thông tin khách hàng</h2>
       <form action="">
         <div className="booking_form_field">

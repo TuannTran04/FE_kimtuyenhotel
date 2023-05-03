@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { createContact } from "../../admin/services/adminService";
 import "./FormContact.css";
 import {} from "react-router-dom";
+import Loading from "../../components/layout/Loading/Loading";
 
 const FormContact = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -40,6 +42,7 @@ const FormContact = () => {
     }
 
     try {
+      setIsLoading(true);
       const formData = form;
       console.log(formData);
 
@@ -56,6 +59,7 @@ const FormContact = () => {
 
   return (
     <div className="contact_wrap_form">
+      {isLoading ? <Loading fullScreen /> : ""}
       <div className="contact_form">
         <h2>Liên lạc</h2>
         <div className="contact_fields">

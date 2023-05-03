@@ -4,10 +4,12 @@ import SliderCuisine from "../../features/SliderCuisine/SliderCuisine";
 import { getListCuisine } from "../../services/roomService";
 import ProductPag from "../ProductPage/ProductPag";
 import "./CuisinePage.css";
+import Loading from "../../components/layout/Loading/Loading";
 
 const PAGE_SIZE = 2;
 
 const CuisinePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [searchParams] = useSearchParams();
   const pageNumber = searchParams.get("page");
   // console.log(pageNumber);
@@ -24,12 +26,15 @@ const CuisinePage = () => {
   useEffect(() => {
     const searchCuisines = async () => {
       try {
+        setIsLoading(true);
         const res = await getListCuisine(currentPage, PAGE_SIZE);
         // console.log(res.total);
         setCuisines(res.data);
         setTotalPages(Math.ceil(res.total / PAGE_SIZE));
+        setIsLoading(false);
       } catch (err) {
         console.log(err);
+        setIsLoading(false);
       }
     };
     searchCuisines();
@@ -56,32 +61,36 @@ const CuisinePage = () => {
 
       <div className="cuisine_bottom">
         <div className="cuisine_bottom_wrapper">
-          {cuisines.map((cuisine, i) => {
-            return (
-              <div className="cuisine_item" key={cuisine.id}>
-                <div
-                  className={`cuisine_wrap_content${
-                    i % 2 === 1 ? " right" : ""
-                  }`}
-                >
-                  <div className="cuisine_content">
-                    <h4>{cuisine.name}</h4>
-                    <div className="cuisine_description">
-                      <p>{cuisine.description}</p>
+          {isLoading ? (
+            <Loading fullScreen />
+          ) : (
+            cuisines.map((cuisine, i) => {
+              return (
+                <div className="cuisine_item" key={cuisine.id}>
+                  <div
+                    className={`cuisine_wrap_content${
+                      i % 2 === 1 ? " right" : ""
+                    }`}
+                  >
+                    <div className="cuisine_content">
+                      <h4>{cuisine.name}</h4>
+                      <div className="cuisine_description">
+                        <p>{cuisine.description}</p>
 
-                      <span>
-                        Giờ mở cửa: {cuisine.opening_time} đến{" "}
-                        {cuisine.closing_time}
-                      </span>
+                        <span>
+                          Giờ mở cửa: {cuisine.opening_time} đến{" "}
+                          {cuisine.closing_time}
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  <div className="cuisine_slider">
+                    <SliderCuisine imgSlider={cuisine.img_slider} />
+                  </div>
                 </div>
-                <div className="cuisine_slider">
-                  <SliderCuisine imgSlider={cuisine.img_slider} />
-                </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
           {/* <div className="cuisine_item">
             <div className="cuisine_wrap_content">
               <div className="cuisine_content">

@@ -20,4 +20,10 @@ export const arrTab_2 = [
     path: "/account-page/history-booking",
     icon: "fa-solid fa-file-invoice-dollar",
   },
+  {
+    id: 2,
+    name: "Nhạc chill",
+    path: "/account-page/music-chill",
+    icon: "fa-solid fa-music",
+  },
 ];
