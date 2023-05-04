@@ -223,7 +223,7 @@ const AdminBooking = () => {
                     >
                       {moment(booking.checkout_date).format("DD-MM-YYYY")}
                     </td>
-                    <td style={{ maxWidth: "400px" }}>{booking.guest_mess}</td>
+                    <td style={{ minWidth: "400px" }}>{booking.guest_mess}</td>
                     <td style={{ minWidth: "200px" }}>{booking.total_stay}</td>
                     <td style={{ minWidth: "200px" }}>
                       {booking.total_guests}
