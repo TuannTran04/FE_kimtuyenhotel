@@ -137,11 +137,14 @@
 
 .mySwiper2 .swiper-button-prev {
   /* color: black !important; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 5px;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.5);
   overflow: hidden;
   user-select: none;
+}
+.mySwiper2 .swiper-button-prev:hover {
+  background-color: rgb(255, 255, 255, 1);
 }
 .mySwiper2 .swiper-button-prev::after {
   /* font-size: 30px; */
@@ -151,11 +154,14 @@
 
 .mySwiper2 .swiper-button-next {
   /* color: black !important; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 5px;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.5);
   overflow: hidden;
   user-select: none;
+}
+.mySwiper2 .swiper-button-next:hover {
+  background-color: rgb(255, 255, 255, 1);
 }
 .mySwiper2 .swiper-button-next::after {
   /* font-size: 30px; */

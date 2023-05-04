@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useParams, Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 import "./FormDetail.css";
@@ -16,7 +16,10 @@ const FormDetail = ({ roomData }) => {
     adults: 0,
     children: 0,
   });
-  // console.log(form);
+  console.log(form);
+  const [stayDays, setStayDays] = useState(0);
+  const [stayNights, setStayNights] = useState(0);
+  const [stayMoney, setStayMoney] = useState(0);
 
   const { checkin, checkout, adults, children } = form;
 
@@ -42,24 +45,46 @@ const FormDetail = ({ roomData }) => {
     }
   };
 
-  const checkinDate = moment(checkin);
-  const checkoutDate = moment(checkout);
-  //   console.log(checkoutDate);
+  // const checkinDate = moment(checkin);
+  // const checkoutDate = moment(checkout);
+  // //   console.log(checkoutDate);
 
-  // Tính số ngày
-  const stayDays = checkoutDate.diff(checkinDate, "days") + 1;
-  // Tính số đêm
-  let stayNights = stayDays - 1;
-  if (checkoutDate.hour() >= 12) {
-    stayNights--;
-  }
-  //   console.log(checkoutDate.hour());
-  // Tính số tiền
-  const stayMoney = stayDays * roomData.price;
-  // console.log(stayMoney);
+  // // Tính số ngày
+  // const stayDays = checkoutDate.diff(checkinDate, "days") + 1;
+  // // Tính số đêm
+  // let stayNights = stayDays - 1;
+  // if (checkoutDate.hour() >= 12) {
+  //   stayNights--;
+  // }
+  // //   console.log(checkoutDate.hour());
+  // // Tính số tiền
+  // const stayMoney = stayDays * roomData.price;
+  // // console.log(stayMoney);
+
+  useEffect(() => {
+    if (checkin && checkout) {
+      const checkinDate = moment(checkin);
+      const checkoutDate = moment(checkout);
+
+      // Tính số ngày
+      const days = checkoutDate.diff(checkinDate, "days") + 1;
+      setStayDays(days);
+
+      // Tính số đêm
+      let nights = days - 1;
+      if (checkoutDate.hour() >= 12) {
+        nights--;
+      }
+      setStayNights(nights);
+
+      // Tính số tiền
+      const money = days * roomData.price;
+      setStayMoney(money);
+    }
+  }, [checkin, checkout]);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent default form submission behavior
+    e.preventDefault();
 
     if (localStorage.getItem("info-user")) {
       // Kiểm tra số lượng phòng còn lại
@@ -75,6 +100,15 @@ const FormDetail = ({ roomData }) => {
         // kiểm tra checkout không được bé hơn hoặc bằng checkin
         if (moment(checkout).isSameOrBefore(moment(checkin))) {
           alert("Ngày trả phòng phải sau ngày nhận phòng");
+          return;
+        }
+
+        if (isNaN(adults)) {
+          alert("Số lượng người lớn phải là số");
+          return;
+        }
+        if (isNaN(children)) {
+          alert("Số lượng trẻ em phải là số");
           return;
         }
 
@@ -153,7 +187,7 @@ const FormDetail = ({ roomData }) => {
                 type="number"
                 name="adults"
                 min="0"
-                step="1"
+                // step="1"
                 value={adults}
                 onChange={handleChange}
               />
@@ -164,7 +198,7 @@ const FormDetail = ({ roomData }) => {
                 type="number"
                 name="children"
                 min="0"
-                step="1"
+                // step="1"
                 value={children}
                 onChange={handleChange}
               />

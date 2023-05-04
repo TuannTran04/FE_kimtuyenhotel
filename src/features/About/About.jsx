@@ -31,7 +31,7 @@ const About = () => {
           <div className={styles.exceed_left}>
             <h2>Bạn đã sẵn sàng để vượt quá mong đợi</h2>
             <p>{description}</p>
-            <Link to="/rooms">Xem thêm</Link>
+            <Link to="/product-page">Xem thêm</Link>
           </div>
         </div>
         <div className={styles.wrap_img}>

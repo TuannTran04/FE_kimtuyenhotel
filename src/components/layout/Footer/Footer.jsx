@@ -58,12 +58,20 @@ const Footer = () => {
           </p>
           <ul className="footer_bottom_socials">
             <li>
-              <a href="#">
+              <a
+                href="https://www.facebook.com/Heoaz456123"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className="fa-brands fa-facebook-f"></i>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a
+                href="https://www.instagram.com/tunadayy_/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className="fa-brands fa-instagram"></i>
               </a>
             </li>
