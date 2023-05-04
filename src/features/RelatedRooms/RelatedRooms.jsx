@@ -11,7 +11,7 @@ import { Link, useParams } from "react-router-dom";
 
 const RelatedRooms = () => {
   const { id, name } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const [relatedRooms, setRelatedRooms] = useState([]);
   console.log(relatedRooms);

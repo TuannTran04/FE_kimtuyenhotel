@@ -5,6 +5,8 @@ import "./FormDetail.css";
 
 const FormDetail = ({ roomData }) => {
   // dung` de redirect va save data tu page nay sang page khac
+  console.log(roomData);
+
   const navigate = useNavigate();
 
   const today = new Date().toISOString().slice(0, 10);
@@ -81,7 +83,7 @@ const FormDetail = ({ roomData }) => {
       const money = days * roomData.price;
       setStayMoney(money);
     }
-  }, [checkin, checkout]);
+  }, [checkin, checkout, roomData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
