@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SliderService from "../../features/SliderService/SliderService";
 import { getListService } from "../../services/roomService";
-import ProductPag from "../ProductPage/ProductPag";
 import "./ServicePage.css";
 import Loading from "../../components/layout/Loading/Loading";
+import AccountPagination from "../../components/layout/AccountPagination/AccountPagination";
 
 const PAGE_SIZE = 2;
 
@@ -135,7 +135,7 @@ const ServicePage = () => {
             </div>
           </div> */}
 
-          <ProductPag
+          <AccountPagination
             paginationData={{
               currentPage,
               totalPages,

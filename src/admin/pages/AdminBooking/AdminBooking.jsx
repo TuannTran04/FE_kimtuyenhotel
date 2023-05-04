@@ -1,7 +1,7 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import AdminPagination from "../../features/AdminPagination/AdminPagination";
+import AdminPagination from "../../components/layout/AdminPagination/AdminPagination";
 import {
   getBookingsAdmin,
   searchBookingsAdmin,

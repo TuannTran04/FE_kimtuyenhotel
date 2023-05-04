@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useLocation,
   useParams,
@@ -13,6 +13,11 @@ import Loading from "../../components/layout/Loading/Loading";
 
 const FormBooking = ({ infoBooking }) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  const [totalGuests, setTotalGuests] = useState("");
+  const [totalStay, setTotalStay] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
+
   const navigate = useNavigate();
   const userId = localStorage.getItem("info-user")
     ? JSON.parse(localStorage.getItem("info-user")).id
@@ -41,14 +46,21 @@ const FormBooking = ({ infoBooking }) => {
     quantity,
   } = infoBooking;
 
-  const totalGuests = `${adults} người lớn${
-    children > 0 ? ` ${children} trẻ em` : ""
-  }`;
-  // console.log(totalGuests);
-  const totalStay = `${stayDays} ngày ${stayNights} đêm`;
-  // console.log(totalStay);
-  const totalPrice = stayMoney + (stayMoney * 10) / 100;
-  // console.log(totalPrice);
+  useEffect(() => {
+    const totalGuests = `${adults} người lớn${
+      children > 0 ? ` ${children} trẻ em` : ""
+    }`;
+    // console.log(totalGuests);
+    setTotalGuests(totalGuests);
+
+    const totalStay = `${stayDays} ngày ${stayNights} đêm`;
+    // console.log(totalStay);
+    setTotalStay(totalStay);
+
+    const totalPrice = stayMoney + (stayMoney * 10) / 100;
+    // console.log(totalPrice);
+    setTotalPrice(totalPrice);
+  }, []);
 
   const handleChange = (e) => {
     // console.log([e.target]);

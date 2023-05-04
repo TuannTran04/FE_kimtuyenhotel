@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import axios from "../../utils/axios";
 import React, { useEffect, useState } from "react";
-import "./ProductPage.css";
 import { getRooms, getSearchRooms } from "../../services/roomService";
 import { Link, useSearchParams } from "react-router-dom";
-import ProductPag from "./ProductPag";
 import Loading from "../../components/layout/Loading/Loading";
+import AccountPagination from "../../components/layout/AccountPagination/AccountPagination";
+import "./ProductPage.css";
 
 // const PAGE_SIZE = 5; // Số lượng phòng hiển thị trên một trang
 
@@ -227,7 +227,7 @@ function ProductPage() {
             })
           )}
 
-          <ProductPag
+          <AccountPagination
             paginationData={{
               currentPage,
               totalPages,

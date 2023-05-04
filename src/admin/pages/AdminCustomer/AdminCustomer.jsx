@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import AdminPagination from "../../features/AdminPagination/AdminPagination";
+import AdminPagination from "../../components/layout/AdminPagination/AdminPagination";
 import {
   activeCustomer,
   deleteCustomer,

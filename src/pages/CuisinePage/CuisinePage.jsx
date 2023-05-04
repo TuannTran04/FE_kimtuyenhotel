@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SliderCuisine from "../../features/SliderCuisine/SliderCuisine";
 import { getListCuisine } from "../../services/roomService";
-import ProductPag from "../ProductPage/ProductPag";
 import "./CuisinePage.css";
 import Loading from "../../components/layout/Loading/Loading";
+import AccountPagination from "../../components/layout/AccountPagination/AccountPagination";
 
 const PAGE_SIZE = 2;
 
@@ -137,7 +137,7 @@ const CuisinePage = () => {
             </div>
           </div> */}
 
-          <ProductPag
+          <AccountPagination
             paginationData={{
               currentPage,
               totalPages,

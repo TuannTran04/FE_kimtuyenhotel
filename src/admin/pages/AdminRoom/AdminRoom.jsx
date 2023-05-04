@@ -5,7 +5,7 @@ import {
   deleteRoom,
   activeRoom,
 } from "../../services/adminService";
-import AdminPagination from "../../features/AdminPagination/AdminPagination";
+import AdminPagination from "../../components/layout/AdminPagination/AdminPagination";
 import "./AdminRoom.css";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 

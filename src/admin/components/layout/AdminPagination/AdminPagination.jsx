@@ -1,7 +1,7 @@
 import React from "react";
-import "./AccountPagination.css";
+import "./AdminPagination.css";
 
-// const AccountPagination = ({ paginationData }) => {
+// const AdminPagination = ({ paginationData }) => {
 //   const { currentPage, totalPages, setCurrentPage } = paginationData;
 //   const handlePageChange = (page) => {
 //     setCurrentPage(page);
@@ -13,7 +13,7 @@ import "./AccountPagination.css";
 //       pages.push(
 //         <button
 //           key={i}
-//           className={`account_pagination-item account_pages ${
+//           className={`product_pagination-item product_pages ${
 //             i === currentPage ? "active" : ""
 //           }`}
 //           onClick={() => handlePageChange(i)}
@@ -27,9 +27,9 @@ import "./AccountPagination.css";
 
 //   return (
 //     <>
-//       <div className="account_pagination">
+//       <div className="adminRoom_pagination">
 //         <button
-//           className="account_pagination-item account_prev"
+//           className="adminRoom_pagination-item adminRoom_prev"
 //           onClick={() => handlePageChange(currentPage - 1)}
 //           disabled={currentPage === 1}
 //         >
@@ -37,7 +37,7 @@ import "./AccountPagination.css";
 //         </button>
 //         {renderPagination()}
 //         <button
-//           className="account_pagination-item account_next"
+//           className="adminRoom_pagination-item adminRoom_next"
 //           onClick={() => handlePageChange(currentPage + 1)}
 //           disabled={currentPage === totalPages}
 //         >
@@ -48,9 +48,9 @@ import "./AccountPagination.css";
 //   );
 // };
 
-// export default AccountPagination;
+// export default AdminPagination;
 
-const AccountPagination = ({ paginationData, visiblePage = 4 }) => {
+const AdminPagination = ({ paginationData, visiblePage = 4 }) => {
   const { currentPage, totalPages, setCurrentPage } = paginationData;
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -77,7 +77,7 @@ const AccountPagination = ({ paginationData, visiblePage = 4 }) => {
       pages.push(
         <button
           key={i}
-          className={`account_pagination-item account_pages ${
+          className={`adminRoom_pagination-item adminRoom_pages ${
             i === currentPage ? "active" : ""
           }`}
           onClick={() => handlePageChange(i)}
@@ -91,7 +91,7 @@ const AccountPagination = ({ paginationData, visiblePage = 4 }) => {
       pages.unshift(
         <button
           key="startEllipsis"
-          className="account_pagination-item account_pages"
+          className="adminRoom_pagination-item adminRoom_pages"
           onClick={() => handlePageChange(1)}
         >
           ...
@@ -106,7 +106,7 @@ const AccountPagination = ({ paginationData, visiblePage = 4 }) => {
       pages.push(
         <button
           key="endEllipsis"
-          className="account_pagination-item account_pages"
+          className="adminRoom_pagination-item adminRoom_pages"
           onClick={() => handlePageChange(totalPages)}
         >
           ...
@@ -119,9 +119,9 @@ const AccountPagination = ({ paginationData, visiblePage = 4 }) => {
 
   return (
     <>
-      <div className="account_pagination">
+      <div className="adminRoom_pagination">
         <button
-          className="account_pagination-item account_prev"
+          className="adminRoom_pagination-item adminRoom_prev"
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
@@ -129,7 +129,7 @@ const AccountPagination = ({ paginationData, visiblePage = 4 }) => {
         </button>
         {renderPagination()}
         <button
-          className="account_pagination-item account_next"
+          className="adminRoom_pagination-item adminRoom_next"
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
@@ -140,4 +140,4 @@ const AccountPagination = ({ paginationData, visiblePage = 4 }) => {
   );
 };
 
-export default AccountPagination;
+export default AdminPagination;
