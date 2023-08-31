@@ -4,8 +4,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { arrIconSoc, arrInputForm } from "./AdminLoginConst";
 import { handleAdminLogin } from "../../services/adminService";
 import "./AdminLogin.css";
+import { useDispatch, useSelector } from "react-redux";
+import { loginSuccessAdmin } from "../../../store/authSlice";
 
 const AdminLogin = () => {
+  const dispatch = useDispatch();
+  const admin = useSelector((state) => state.auth.login.currentAdmin);
+
   const [form, setFormValue] = useState({
     name: "",
     password: "",
@@ -67,7 +72,7 @@ const AdminLogin = () => {
         setErrMessage(response.message);
       } else {
         // logic when login success
-        localStorage.setItem("info-admin", JSON.stringify(response.admin));
+        dispatch(loginSuccessAdmin(response.admin));
         window.location.href = "/admin";
         alert("login success");
         console.log("login success");
@@ -81,7 +86,7 @@ const AdminLogin = () => {
   // Prefill inputs if redirected from the register page
   useEffect(() => {
     if (location.state) {
-      localStorage.removeItem("remember-admin");
+      // localStorage.removeItem("remember-admin");
       setFormValue((prevState) => ({
         ...prevState,
         ...location.state,
@@ -91,24 +96,23 @@ const AdminLogin = () => {
 
   // Check có rememberData không và trong rememberData email password có phải là truthy không
   useEffect(() => {
-    const rememberData = JSON.parse(localStorage.getItem("remember-admin"));
-    if (rememberData?.name && rememberData?.password) {
-      setFormValue((prevState) => ({
-        ...prevState,
-        ...rememberData,
-        rememberAdmin: true,
-      }));
-    }
+    // if (admin?.name && admin?.password) {
+    setFormValue((prevState) => ({
+      ...prevState,
+      ...admin,
+      rememberAdmin: true,
+    }));
+    // }
   }, []);
 
   // Chỉ lưu vào local khi input được fill đầy đủ và có checkbox
-  useEffect(() => {
-    if (rememberAdmin && name && password) {
-      localStorage.setItem("remember-admin", JSON.stringify(form));
-    } else {
-      localStorage.removeItem("remember-admin");
-    }
-  }, [form]);
+  // useEffect(() => {
+  //   if (rememberAdmin && name && password) {
+  //     localStorage.setItem("remember-admin", JSON.stringify(form));
+  //   } else {
+  //     localStorage.removeItem("remember-admin");
+  //   }
+  // }, [form]);
 
   return (
     <div className="adminLogin_page">

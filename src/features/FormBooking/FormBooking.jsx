@@ -10,8 +10,12 @@ import moment from "moment";
 import "./FormBooking.css";
 import { createBookings } from "../../services/roomService";
 import Loading from "../../components/layout/Loading/Loading";
+import { useSelector } from "react-redux";
 
 const FormBooking = ({ infoBooking }) => {
+  const user = useSelector((state) => state.auth.login.currentUser);
+  const userId = user ? user.id : "";
+
   const [isLoading, setIsLoading] = useState(false);
 
   const [totalGuests, setTotalGuests] = useState("");
@@ -19,9 +23,7 @@ const FormBooking = ({ infoBooking }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const navigate = useNavigate();
-  const userId = localStorage.getItem("info-user")
-    ? JSON.parse(localStorage.getItem("info-user")).id
-    : "";
+
   // console.log(userId);
 
   const [form, setFormValue] = useState({

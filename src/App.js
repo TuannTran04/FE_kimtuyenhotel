@@ -43,6 +43,7 @@ import HistoryBookingPage from "./pages/HistoryBookingPage/HistoryBookingPage";
 import ChangeInfoPage from "./pages/ChangeInfoPage/ChangeInfoPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage/ChangePasswordPage";
 import MusicChillPage from "./pages/MusicChillPage/MusicChillPage";
+import { useSelector } from "react-redux";
 
 function App() {
   const { pathname } = useLocation();
@@ -57,12 +58,12 @@ function App() {
   // const [isAdminLoggedIn, setAdminIsLoggedIn] = useState(
   //   JSON.parse(localStorage.getItem("is-Admin-LoggedIn") || false)
   // );
-  const [isUserLoggedIn, setUserIsLoggedIn] = useState(
-    localStorage.getItem("info-user") ? true : false
-  );
-  const [isAdminLoggedIn, setAdminIsLoggedIn] = useState(
-    localStorage.getItem("info-admin") ? true : false
-  );
+
+  const user = useSelector((state) => state.auth.login.currentUser);
+  const admin = useSelector((state) => state.auth.login.currentAdmin);
+
+  const [isUserLoggedIn, setUserIsLoggedIn] = useState(user ? true : false);
+  const [isAdminLoggedIn, setAdminIsLoggedIn] = useState(admin ? true : false);
 
   return (
     <div className="App">

@@ -10,15 +10,15 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Logout from "../Logout/Logout";
+import { useSelector } from "react-redux";
 
 // console.log(styles);
 
 const Header = () => {
+  const user = useSelector((state) => state.auth.login.currentUser);
+
   const nav = useNavigate();
   const [hideNavInfo, setHideNavInfo] = useState(false);
-
-  const infoUser = JSON.parse(localStorage.getItem("info-user"));
-  // console.log(infoUser);
 
   const handleNavAccountPage = () => {
     nav("/account-page");
@@ -74,7 +74,7 @@ const Header = () => {
               <li>
                 <NavLink to="/contact-page">Liên hệ</NavLink>
               </li>
-              {!infoUser && (
+              {!user && (
                 <>
                   {/* <li>
                     <NavLink to="/register">Register</NavLink>
@@ -87,13 +87,13 @@ const Header = () => {
             </ul>
           </div>
 
-          {infoUser && (
+          {user && (
             <div className={styles.nav_logOut}>
               <h4 onClick={handleNavAccountPage}>
-                <i>Xin chào, {infoUser.name}</i>
+                <i>Xin chào, {user.name}</i>
               </h4>
 
-              {infoUser && <Logout />}
+              {user && <Logout />}
             </div>
           )}
         </div>

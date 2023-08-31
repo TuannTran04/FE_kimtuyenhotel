@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./ChangePasswordPage.css";
 import { useOutletContext } from "react-router-dom";
 import { changePasswordUser } from "../../services/userService";
+import { useSelector } from "react-redux";
 
 const ChangePasswordPage = () => {
+  const user = useSelector((state) => state.auth.login.currentUser);
+  const user_id = user ? user.id : "";
   const [isLoading, setIsLoading] = useOutletContext();
   // console.log("CHANGE PASSWORD PAGE", isLoading);
-
-  const user_id = localStorage.getItem("info-user")
-    ? JSON.parse(localStorage.getItem("info-user")).id
-    : "";
 
   const [form, setFormValue] = useState({
     oldPassword: "",

@@ -10,21 +10,11 @@ import SliderHome from "../../features/Slider/SliderHome";
 import SliderIns from "../../features/SliderIns/SliderIns";
 import useGetUser from "../../hooks/getUserHook";
 import style from "./HomePage.module.css";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
-  // const location = useLocation();
-  // console.log(location.state);
-  // let userId = "";
-  // if (location.state) {
-  //   userId = location.state.userId;
-  // }
-
-  // const userIdCheck = localStorage.getItem("info-user")
-  //   ? JSON.parse(localStorage.getItem("info-user")).id
-  //   : "";
-  // console.log(userIdCheck);
-
-  // useGetUser(userId || userIdCheck);
+  const user = useSelector((state) => state.auth.login.currentUser);
+  console.log(user);
 
   return (
     <div className={style.test_home}>

@@ -5,8 +5,11 @@ import { arrIconSoc, arrInputForm } from "./LoginConst";
 import { handleLogin } from "../../services/userService";
 import "./LoginPage.css";
 import Loading from "../../components/layout/Loading/Loading";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../store/authSlice";
 
 const LoginPage = (props) => {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [form, setFormValue] = useState({
@@ -85,7 +88,8 @@ const LoginPage = (props) => {
       } else {
         // logic when login success
         setIsLoading(false);
-        localStorage.setItem("info-user", JSON.stringify(response.user));
+
+        dispatch(loginSuccess(response.user));
         window.location.href = "/";
         navigate("/", { state: { userId: response.user.id } });
         alert("login success");

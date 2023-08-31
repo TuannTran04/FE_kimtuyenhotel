@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useParams, Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 import "./FormDetail.css";
+import { useSelector } from "react-redux";
 
 const FormDetail = ({ roomData }) => {
+  const user = useSelector((state) => state.auth.login.currentUser);
+
   // dung` de redirect va save data tu page nay sang page khac
   console.log(roomData);
 
@@ -88,7 +91,7 @@ const FormDetail = ({ roomData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (localStorage.getItem("info-user")) {
+    if (user) {
       // Kiểm tra số lượng phòng còn lại
       if (roomData.quantity <= 0) {
         alert("Đã hết phòng này!");

@@ -1,10 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Routes, Route, Link, Navigate, NavLink } from "react-router-dom";
+import { logOutSuccess } from "../../../store/authSlice";
 
 const Logout = () => {
+  const dispatch = useDispatch();
   const handleLogout = () => {
-    localStorage.removeItem("info-user");
     window.location.href = "/";
+    dispatch(logOutSuccess());
   };
 
   return (

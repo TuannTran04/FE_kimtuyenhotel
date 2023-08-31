@@ -3,14 +3,15 @@ import "./ChangeInfoPage.css";
 import { changeInfoUser, getUser } from "../../services/userService";
 import { useOutletContext } from "react-router-dom";
 import Loading from "../../components/layout/Loading/Loading";
+import { useSelector } from "react-redux";
 
 const ChangeInfoPage = () => {
+  const user = useSelector((state) => state.auth.login.currentUser);
+  const user_id = user ? user.id : "";
+
   const [isLoading, setIsLoading] = useOutletContext();
   // console.log("CHANGE INFO PAGE", isLoading);
 
-  const user_id = localStorage.getItem("info-user")
-    ? JSON.parse(localStorage.getItem("info-user")).id
-    : "";
   // console.log(user_id);
 
   const [form, setFormValue] = useState({
